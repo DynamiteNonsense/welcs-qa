@@ -1,0 +1,23 @@
+/* BUG-2. Основное исправление делается в CMS: убрать пустые <p>/<br> в конце EN-текста
+   блока "For Travellers". Этот CSS защищает от повторения, если пустые абзацы
+   снова попадут в любой перевод. */
+.mdl-imgText .m-text p:empty,
+.mdl-imgText .m-text br:last-child {
+  display: none;
+}
+.mdl-imgText .m-text > :last-child {
+  margin-bottom: 0;
+}
+
+/* BUG-1. Постоянный фикс вкладок поиска. Вкладки на сайте: section.mdl-heroHome .heroForm > .top-tabs.tab-1 / .tab-2.
+   Идея (на сайте не проверялось, точные значения подбирать по вёрстке): вкладки по ширине текста и без
+   жёсткого смещения, чтобы вторая начиналась там, где закончилась первая.
+
+.mdl-heroHome .heroForm > .top-tabs {
+  position: relative;   вместо absolute + жёсткого left
+  left: auto;
+  width: auto;          вместо фиксированной ширины под испанский текст
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+*/
